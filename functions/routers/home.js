@@ -11,10 +11,10 @@ router.get('/', async (req, res) => {
 
 router.get('/get-posts', async (req, res) => {
     try {
+        const lastPostId = req.query.lastPostId; // id of the last post in the previous page
         let isLastPage = false;
         const allPosts = [];
         const pageSize = 50; // number of posts per page
-        const lastPostId = req.query.lastPostId; // id of the last post in the previous page
         let q;
         if (lastPostId) {
             // if lastPostId is provided, start after that post
