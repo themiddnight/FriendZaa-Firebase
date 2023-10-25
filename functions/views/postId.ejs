@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/base-head.ejs', { customTitle: post.title + ' - '}) %>
+</head>
+
+<body class="mb-5 bg-body-secondary">
+  <%- include('partials/site-header.ejs') %>
+
+  <div class="container my-4">
+
+    <%- include('partials/site-postBtn.ejs') %>
+
+    <div class="card shadow-sm mb-4 anim rounded-0">
+      <h3 class="card-header py-3"><%= post.title %></h3>
+      <div class="card-body">
+        <p class="card-text lead"><%= post.content %></p>
+        <p class="card-text">
+          <% if (post.from) { %>
+            <span class="fw-bold"><%= post.from %> </span> · 
+          <% } else { %>
+            <span class="fw-light">[ไม่มีชื่อ]</span> · 
+          <% } %>
+          <small class="fw-light"><%= post.createdAt %></small>
+        </p>
+      </div>
+    </div>
+    
+    <div class="card shadow-sm anim rounded-0">
+
+      <div class="card-header">
+        <h1 class="card-text fs-5 py-1">ตอบกลับโพส</h1>
+      </div>
+
+      <form action="/post/<%= id %>" method="post">
+        <div class="card-body">
+
+          <label class="form-label" for="content">คอมเม้น: <span class="text-danger">*</span></label>
+          <textarea class="form-control mb-3" style="height: 100px;" name="content" id="content" cols="30" rows="10" placeholder="อยากบอกไร จขพ" required></textarea>
+
+          <label class="form-label" for="from">จากคุณ:</label>
+          <input class="form-control mb-3" type="text" name="from" id="from" placeholder="ชื่อ">
+
+          <div class="d-flex justify-content-end">
+            <button class="col-12 btn btn-dark" type="submit">ตอบกลับ</button>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+
+    <hr class="anim">
+
+    <div class="anim">
+      <% let commentsCount = comments.length %>
+      <% if (post.commentsCount !== 0) { %>
+        <h4 class="card-text"><%= commentsCount %> ตอบกลับ</h4>
+      <% } else { %>
+        <h4 class="card-text">ยังไม่มีใครตอบ</h4>
+      <% } %>
+
+      <div class="list-group list-group-flush">
+        <% if (commentsCount !== 0) { %>
+        <% comments.forEach((comment) => { %>
+        <div class="list-group-item bg-body-secondary mt-3">
+          <p class="lead"><%= comment.content %></p>
+          <p>
+            <% if (comment.from) { %>
+              <span class="fw-bold"><%= comment.from %> </span> · 
+            <% } else { %>
+              <span class="fw-light">[ไม่มีชื่อ]</span> · 
+            <% } %>
+            <small class="fw-light"><%= comment.createdAt %></small>
+          </p>
+        </div>
+        <% }) %>
+        <% } else { %>
+        <div class="list-group-item bg-body-secondary mt-3">
+          <p>ยังไม่มีเม้น เชิญคุณเปิดคนแรกเลย!!</p>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

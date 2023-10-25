@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/base-head.ejs', { customTitle: ''}) %>
+</head>
+
+<body class="mb-5 bg-body-secondary">
+  <%- include('partials/site-header.ejs') %>
+
+  <div clas="position-absolute">
+    <div class="text-center position-absolute top-50 start-50 translate-middle">
+      <h3 class="my-5"><%= message %></h3>
+      <a href="/">Back to home</a>
+    </div>
+  </div>
+  
+</body>
+</html>

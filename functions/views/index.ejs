@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/base-head.ejs', { customTitle: ''}) %>
+  <script type="module" src="/scripts/loadPosts.js"></script>
+</head>
+
+<body class="mb-5 bg-body-secondary">
+  <%- include('partials/site-header.ejs') %>
+
+  <div class="container position-relative my-4">
+    <%- include('partials/site-postBtn.ejs') %>
+
+    <div id="postContainer">
+      <!-- posts will be loaded here -->
+    </div>
+
+    <div class="d-flex justify-content-center" id="bottomElem">
+      <div class="spinner-border my-5" role="status" id="loadMoreSpinner"></div>
+      <button class="btn btn-outline-dark px-3 d-none" id="loadMoreBtn">โหลดเพิ่ม</button>
+      <p class="d-none" id="endContentP">หมดแล้วแค่นี้</p>
+    </div>
+
+  </div>
+
+  <!-- post modal -->
+  <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content bg-body-secondary">
+        <div class="modal-header bg-body-tertiary">
+          <h1 class="modal-title fs-5" id="postModalLabel"></h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="postModalBody">
+          
+          <!-- post will be loaded here -->
+          
+        </div>
+        <div class="modal-footer bg-body-tertiary">
+          <button type="button" class="btn btn-dark px-4" data-bs-dismiss="modal">ปิด</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

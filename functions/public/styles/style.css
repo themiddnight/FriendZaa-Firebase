@@ -1,0 +1,39 @@
+.container {
+    max-width: 720px !important;
+}
+
+.post-btn {
+    filter: drop-shadow(0 10px 5px #00000044); 
+    -webkit-filter: drop-shadow(0 10px 5px #00000044);
+}
+
+.list-group-item, .border-bottom {
+    border-color: #00000044 !important;
+}
+
+.anim {
+    animation: myAnimation 0.3s ease-out;
+    animation-fill-mode: both;
+}
+
+.anim:nth-child(1) {animation-delay: 0.0s;}
+.anim:nth-child(2) {animation-delay: 0.05s;}
+.anim:nth-child(3) {animation-delay: 0.1s;}
+.anim:nth-child(4) {animation-delay: 0.15s;}
+.anim:nth-child(5) {animation-delay: 0.2s;}
+.anim:nth-child(6) {animation-delay: 0.25s;}
+.anim:nth-child(7) {animation-delay: 0.3s;}
+.anim:nth-child(8) {animation-delay: 0.35s;}
+.anim:nth-child(9) {animation-delay: 0.4s;}
+.anim:nth-child(10) {animation-delay: 0.45s;}
+
+@keyframes myAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
