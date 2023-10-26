@@ -20,17 +20,17 @@ async function getPost(id) {
             }
 
             let postHtml = `
-                <div class="card shadow-sm mb-4 rounded-0">
-                    <h3 class="card-header py-3">${post.title}</h3>
+                <div class="card shadow-sm mb-4">
+                    <h5 class="card-header py-3">${post.title}</h5>
                     <div class="card-body">
-                        <p class="card-text lead">${post.content}</p>
-                        <p class="card-text">
+                        <p class="card-text">${post.content}</p>
+                        <small class="card-text">
                             ${postFromHtml} · 
                             <small class="fw-light">${post.createdAt}</small>
-                        </p>
+                        </small>
                     </div>
                 </div>
-                <div class="card shadow-sm rounded-0">
+                <div class="card shadow-sm">
                     <div class="card-header">
                         <h1 class="card-text fs-5 py-1">ตอบกลับโพส</h1>
                     </div>
@@ -53,22 +53,22 @@ async function getPost(id) {
                 postHtml +=
                 `<hr>
                 <div>
-                    <h4 class="card-text">${comments.length} ตอบกลับ</h4>
+                    <h3 class="card-text">${comments.length} ตอบกลับ</h3>
                     <div class="list-group list-group-flush">`;
                 comments.forEach(comment => {
                     let commentFromHtml = '';
-                    if (post.from) {
+                    if (comment.from) {
                         commentFromHtml = `<span class="fw-bold">${comment.from}</span>`
                     } else {
                         commentFromHtml = `<span class="fw-light">[ไม่มีชื่อ]</span>`
                     }
                     postHtml += `
-                        <div class="list-group-item bg-body-secondary mt-3">
-                            <p class="lead">${comment.content}</p>
-                            <p>
+                        <div class="list-group-item bg-body-secondary py-3">
+                            <p>${comment.content}</p>
+                            <small>
                                 ${commentFromHtml} · 
                                 <small class="fw-light">${comment.createdAt}</small>
-                            </p>
+                            </small>
                         </div>`;
                 });
                 postHtml +=

@@ -12,22 +12,22 @@
 
     <%- include('partials/site-postBtn.ejs') %>
 
-    <div class="card shadow-sm mb-4 anim rounded-0">
-      <h3 class="card-header py-3"><%= post.title %></h3>
+    <div class="card shadow-sm mb-4 anim">
+      <h5 class="card-header py-3"><%= post.title %></h5>
       <div class="card-body">
-        <p class="card-text lead"><%= post.content %></p>
-        <p class="card-text">
+        <p class="card-text"><%= post.content %></p>
+        <small class="card-text">
           <% if (post.from) { %>
             <span class="fw-bold"><%= post.from %> </span> · 
           <% } else { %>
             <span class="fw-light">[ไม่มีชื่อ]</span> · 
           <% } %>
           <small class="fw-light"><%= post.createdAt %></small>
-        </p>
+        </small>
       </div>
     </div>
     
-    <div class="card shadow-sm anim rounded-0">
+    <div class="card shadow-sm anim">
 
       <div class="card-header">
         <h1 class="card-text fs-5 py-1">ตอบกลับโพส</h1>
@@ -63,16 +63,16 @@
       <div class="list-group list-group-flush">
         <% if (commentsCount !== 0) { %>
         <% comments.forEach((comment) => { %>
-        <div class="list-group-item bg-body-secondary mt-3">
-          <p class="lead"><%= comment.content %></p>
-          <p>
+        <div class="list-group-item bg-body-secondary py-3">
+          <p><%= comment.content %></p>
+          <small>
             <% if (comment.from) { %>
               <span class="fw-bold"><%= comment.from %> </span> · 
             <% } else { %>
               <span class="fw-light">[ไม่มีชื่อ]</span> · 
             <% } %>
             <small class="fw-light"><%= comment.createdAt %></small>
-          </p>
+          </small>
         </div>
         <% }) %>
         <% } else { %>

@@ -21,7 +21,7 @@ async function getPosts() {
       lastPostId = data.lastPostId;
       posts.forEach(post => {
         if (!post.title) {
-          post.title = post.content.substring(0, 15) + '...';
+          post.title = post.content.substring(0, 49) + '<span class="text-body-tertiary">...</span>';
         }
         if (post.from) {
           postFromHtml = `<span class="fw-bold">${post.from}</span>`
@@ -31,18 +31,18 @@ async function getPosts() {
         let commentsCount = ''
         post.commentsCount > 0 ? commentsCount = `${post.commentsCount}  ตอบกลับ` : commentsCount = 'ยังไม่มีใครตอบ';
         let postHtml = `
-          <div class="card shadow-sm mb-4 rounded-0 anim">
-            <h3 class="card-header py-3">
+          <div class="card shadow-sm mb-4 anim">
+            <h5 class="card-header py-3">
               <a class="text-dark link-offset-1 link-underline-secondary" href="/post/${post.id}">
                 ${post.title}
               </a>
-            </h3>
+            </h5>
             <div class="card-body" data-bs-toggle="modal" data-bs-target="#postModal" style="cursor: pointer;" onclick="getPost('${post.id}')">
-              <p class="card-text">
+              <p class="card-text mb-2">
                 ${postFromHtml} · 
                 <small class="fw-light">${post.createdAt}</small>
               </p>
-              <p class="card-text">${commentsCount}</p>
+              <small class="card-text">${commentsCount}</small>
             </div>
           </div>`;
         postContainer.innerHTML += postHtml;
