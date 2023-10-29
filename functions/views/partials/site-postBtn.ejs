@@ -1,13 +1,19 @@
-<button class="btn post-btn position-fixed bottom-0 end-0 mb-3 me-3 mb-sm-5 me-sm-5 z-2" data-bs-toggle="modal" data-bs-target="#newPostModal">
-  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+<button class="btn post-btn position-fixed bottom-0 end-0 mb-3 me-3 mb-sm-5 me-sm-5 z-2" data-bs-toggle="modal"
+  data-bs-target="#newPostModal">
+  <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-plus-circle-fill"
+    viewBox="0 0 16 16">
+    <ellipse
+      style="stroke: rgb(0, 0, 0); paint-order: fill; fill-rule: nonzero; stroke-width: 0px; fill: rgb(255, 255, 255);"
+      cx="8" cy="8" rx="5" ry="5" transform="matrix(1, 0, 0, 1, 8.881784197001252e-16, 0)" />
+    <path
+      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
   </svg>
 </button>
 
-<div class="modal fade" id="newPostModal" tabindex="-1" >
+<div class="modal fade" id="newPostModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content shadow">
-      <form action="/post/new" method="post"> 
+      <form action="/post/new" method="post">
 
         <div class="modal-header bg-body-tertiary">
           <h1 class="modal-title fs-5" id="exampleModalLabel">โพสใหม่</h1>
@@ -17,14 +23,15 @@
         <div class="modal-body">
           <label class="form-label" for="title">หัวข้อ:</label>
           <input class="form-control mb-3" type="text" name="title" id="title" placeholder="เรื่องไรดี">
-  
+
           <label class="form-label" for="content">เนื้อหา:</label>
-          <textarea class="form-control mb-3" style="height: 120px;" name="content" id="content" cols="30" rows="10" placeholder="มีไรอยากเล่า"></textarea>
-          
+          <textarea class="form-control mb-3" style="height: 120px;" name="content" id="content" cols="30" rows="10"
+            placeholder="มีไรอยากเล่า"></textarea>
+
           <label class="form-label" for="from">จากคุณ:</label>
           <input class="form-control mb-3" type="text" name="from" id="from" placeholder="ชื่อ">
         </div>
-  
+
         <div class="modal-footer bg-body-tertiary">
           <button class="btn btn-outline-none px-5" type="button" data-bs-dismiss="modal">ปิด</button>
           <button class="btn btn-dark px-5" type="submit" id="submitBtn" disabled>โพสเลย!</button>
